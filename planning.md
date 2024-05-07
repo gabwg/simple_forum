@@ -9,7 +9,7 @@
  
 ## Frontend
 - ReactJS w/TypeScript (to learn)
-- JavaScript ES1/2/3 (a later plan to possibly build a frontend for late 90s/early 2000s browsers)
+- ECMAScript ES1/2/3 (a later plan to possibly build a frontend for late 90s/early 2000s browsers)
  
 # Features to implement
 
