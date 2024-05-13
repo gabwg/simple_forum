@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ForumServer DEBUG mode",
+            "request": "launch",
+            "mainClass": "",
+            "args": "debug"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ForumServer",
+            "request": "launch",
+            "mainClass": "ForumServer.ForumServer",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "org.example.App",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "ForumServer(1)",
+            "request": "launch",
+            "mainClass": "app.src.main.java.ForumServer.ForumServer",
+            "projectName": "simple_forum_d3478165"
+        },
+        {
+            "type": "java",
+            "name": "App(1)",
+            "request": "launch",
+            "mainClass": "app.src.main.java.org.example.App",
+            "projectName": "simple_forum_d3478165"
+        }
+    ]
+}
