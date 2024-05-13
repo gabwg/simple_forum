@@ -31,10 +31,10 @@ public class PostgresDbConn implements DbConn {
             st.setString(2, username);
             st.setString(3, password);
             st.executeUpdate(); 
+            return "success";
         } catch (SQLException e) {
             return "error registering new user";
         }
-        return null;
     }
 
     @Override
@@ -64,13 +64,13 @@ public class PostgresDbConn implements DbConn {
     @Override
     public void dropAllRecords() {
         try {
-            List<String> tablenames = Arrays.asList();
+            List<String> tablenames = Arrays.asList("accounts");
             for (String tablename: tablenames) {
-                PreparedStatement st = conn.prepareStatement("DELETE FROM ?");
-                st.setString(1, tablename);
-                st.executeUpdate();
+                PreparedStatement st = conn.prepareStatement(String.format("DELETE FROM %s", tablename));
+                System.out.println(String.format("deleted %d records from %s", st.executeUpdate(), tablename));
             }
         } catch (SQLException e) {
+            System.out.println(e);
             return;
         }
     }

@@ -2,5 +2,6 @@
     "postgres_url": "jdbc:postgresql:forumserverdb",
     "postgres_debug_url": "jdbc:postgresql:debugforumserverdb",
     "postgres_username": "postgres",
-    "postgres_password": "postgres"
+    "postgres_password": "postgres",
+    "jwt_secret": "testsecret123"
 }

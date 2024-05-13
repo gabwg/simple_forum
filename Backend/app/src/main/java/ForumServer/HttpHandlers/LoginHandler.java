@@ -33,6 +33,7 @@ public class LoginHandler implements HttpHandler {
                 // craft a response with message and token
                 Map<String, String> responsedata = new HashMap<String,String>();
                 responsedata.put("message", "correct login details");
+                responsedata.put("token", userservice.generateToken(logindetails));
                 HandlerHelpers.sendResponse(exchange, 200, responsedata);
             } else {
                 Map<String, String> responsedata = new HashMap<String,String>();

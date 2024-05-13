@@ -27,7 +27,7 @@ public class ForumServer {
     static String configlocation = "Backend/serverconfigs/config.json";
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        boolean debug = (args.length == 1 && args[0] == "debug");
+        boolean debug = (args.length == 1 && args[0].equals("debug"));
         if (debug) {
             System.out.println("SERVER IN DEBUG MODE. DATA WILL NOT BE SAVED");
         }       
@@ -38,7 +38,7 @@ public class ForumServer {
         //DbConn dbconn = new DummyDbConn();
         String postgresurl = configs.get("postgres_url");
         if (debug) {
-            postgresurl = configs.get("postrgres_debug_url");
+            postgresurl = configs.get("postgres_debug_url");
         }
         DbConn dbconn = new PostgresDbConn(postgresurl, 
                                             configs.get("postgres_username"), 
@@ -47,7 +47,7 @@ public class ForumServer {
             dbconn.dropAllRecords();
         }
         // create services
-        UserService userservice = new UserService(dbconn);
+        UserService userservice = new UserService(dbconn, configs.get("jwt_secret"));
         
         // create contexts
         // for a test route. can be removed
@@ -57,7 +57,7 @@ public class ForumServer {
         server.createContext("/register", new RegisterHandler(userservice));
 
 
-
+        // start server
         server.setExecutor(null);
         server.start();
     }
